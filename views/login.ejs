@@ -8,5 +8,11 @@
         <input class="data" type="password" name="password" placeholder="Password"><br>
         <input type="submit" value="LOGIN" class="bttn">
         <div id="signup">Not a member? <a href="/signup">Sign-up</a> now</div>
+        <div id="msg">
+            <%if (msg !='') { %>
+                <%=msg%>
+            <% }%>
+        </div>
     </form>
 </div>
+<img src="../public/img/login.png">
