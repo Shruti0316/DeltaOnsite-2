@@ -2,15 +2,15 @@
 body{
     height: 100%;
     margin: 0;
-    background-color: #0e2f56;
+    background-image:  linear-gradient(to top right,rgb(22, 22, 211),rgb(93,93,241),rgb(134, 3, 134));
 }
 form{
-    background-color: #ececda;
+    background-color: rgba(236, 236, 218,0.5);
     position: absolute;
     padding: 35px;
     border-radius: 10px;
     top: 50%;
-    left: 50%;
+    left: 65%;
     transform: translate(-50%, -50%); 
 } 
 .data{
@@ -23,13 +23,19 @@ form{
     padding: 15px;
     color: black;
 }
-#login,#signup{
-    font-size: 20px;
-}
 header{
-    font-size: 55px;
+    font-size: 65px;
     padding-bottom: 20px;
     font-family: 'Concert One',cursive;
-    color: #ff304f;
+    color: #ececda;
+    text-align: center;
+}
+img{
+    transform: translate(50%, 30%); 
+}
+#msg{
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
     text-align: center;
 }
