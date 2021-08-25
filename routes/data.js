@@ -31,16 +31,33 @@ const upload = multer({
 })
 
 router.get("/",(req,res) =>{
-    res.render("login.ejs");
+    res.render("login.ejs",{msg:""});
 })
 router.get("/login",(req,res) =>{
-  res.render("login.ejs");
+  res.render("login.ejs",{msg:""});
 })
 router.get("/signup",(req,res) =>{
-  res.render("signup.ejs");
+  res.render("signup.ejs",{msg:""});
 })
 router.post("/signup", async (req, res) => {
- 
+  var username = req.body.name;
+  var email = req.body.email;
+  var pwd = req.body.password;
+  if(username == "" || email == "" || pwd == ""){
+    res.render("signup.ejs",{msg:"Fill all the Details"});
+  }
+  User.findOne({ name: username })
+    .then(user => {
+      if (user) {
+        res.render("signup.ejs",{msg:"User Already Exists"});
+      }
+  })
+  User.findOne({ email: email })
+    .then(user => {
+      if (user) {
+        res.render("signup.ejs",{msg:"Email not available"});
+      }
+  })
   const salt = await bcrypt.genSalt()
   const hashedPassword = await bcrypt.hash(req.body.password,salt);
   const newUser = new User({
@@ -57,20 +74,28 @@ router.post("/signup", async (req, res) => {
       console.log(err);
     });
 });
-router.post("/login",async(req,res)=>{
-    const userid = await User.findOne({name:req.body.name});
-    //console.log(userid);
-    const isMatch = await bcrypt.compare(req.body.password,userid.password);
-    //console.log(isMatch);
-    if(isMatch){
-      username=req.body.name;
-      const img = await Media.find().select("_id Image url owner").exec();
-      res.render("index.ejs",{img:img});
-      };
-    });
+router.post("/login",(req,res)=>{
+    User.findOne({name:req.body.name})
+    .then(async(result) =>{
+      if (result){
+        var userid= await User.findOne({name:req.body.name});
+        const isMatch = await bcrypt.compare(req.body.password,userid.password);
+        if(isMatch){
+          username=req.body.name;
+          const img = await Media.find().select("_id Image url owner").exec();
+          res.render("index.ejs",{img:img});
+          }
+        else{
+          res.render("login.ejs",{msg:"Invalid Credentials"});
+        }
+      }
+      else{
+        res.render("login.ejs",{msg:"User Not Found"});
+      }
+    })
+});
 
 router.post("/upload",upload.single("media"),(req,res) => {
-   // console.log("req.file: ",req.file);
     const media = new Media({
         Image: req.file.originalname,
         url: req.file.path,
@@ -79,9 +104,6 @@ router.post("/upload",upload.single("media"),(req,res) => {
     media
         .save()
         .then(async(result) => {
-            //console.log(result);
-            // const picUrl = "http://localhost:6060/" + result.url;
-            // const data = {url: picUrl};
             const img = await Media.find().select("_id Image url owner").exec();
             res.render("index.ejs",{img:img})
         })
