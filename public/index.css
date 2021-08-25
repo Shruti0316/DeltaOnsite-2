@@ -1,46 +1,51 @@
 @import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
 body{
     margin: 10px;
     padding: 0;
-    background-color: #0e2f56
+    background-color: rgba(85, 30, 166, 0.55);
 }
-.previewBtn{
-    background-color: rgb(28, 105, 194);
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 25px;
+#upload{
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
 }
-.uploadBtn{
-    background-color: rgb(16, 156, 156);
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 25px;
-    margin-top: 20px;
+#flex{
+    display: flex;
 }
 #img{
-background-color: blueviolet;
-color: white;
-font-weight: bold;
-padding: 10px 25px;
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+.uploadBtn{
+    border: 1px solid #00B4CC;
+    background: #00B4CC;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 18px;
 }
 header{
+    color: white;
     font-size: 50px;
     text-align: center;
     font-family: 'Concert One', cursive;
     padding: 20px 20px 10px 20px;
 }
 #tname{
+    color: white;
     font-size: 30px;
     text-align: center;
     font-family: 'Concert One', cursive;
     padding: 10px;
 }
 a{
-    color: blue;
     font-size: 20px ;
     text-align: center;
 }
@@ -51,40 +56,29 @@ a{
 #logout a{
     font-size: 20px;
     color: white;
+    text-decoration: none;
 }
 form{
     text-align: center;
 }
-#flex{
-    display: flex;
-    justify-content: space-around;
-    margin-left: 20vw;
-    margin-right: 20vw;
-}
 /* TABLE */
 .list {
-border-collapse: collapse;
-font-family: sans-serif;
-min-width: 50%;
-margin-left: auto;
-margin-right: auto;
+    border-collapse: collapse;
+    font-family: 'Lora', serif;
+    min-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .list thead tr {
-background-color: #ff304f;
-color: #ffffff;
-text-align: left;
+    background-image: linear-gradient(to right,rgb(0, 255, 127),rgb(0, 202, 202));
+    font-size: 20px;
+    color: white;
+    text-align: left;
 }
-.list  th,
-.list  td {
-padding: 12px 15px;
+.list  th,.list  td {
+    padding: 12px 15px;
+    font-size: 20px;
 }
-.list tbody tr {
-border-bottom: 1px solid #dddddd;
-}
-
-.list tbody tr:nth-of-type(even) {
-background-color: #f3f3f3;
-}
-.list tbody tr:nth-of-type(odd) {
-background-color: #fabed0;
+.list tbody{
+    background-image: linear-gradient(to right,rgba(0, 202, 202,0.5),rgba(52, 219, 136,0.5));
 }
