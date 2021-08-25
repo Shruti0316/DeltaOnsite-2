@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+body{
+    margin: 10px;
+    padding: 0;
+    background-color: #0e2f56
+}
+.previewBtn{
+    background-color: rgb(28, 105, 194);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 25px;
+}
+.uploadBtn{
+    background-color: rgb(16, 156, 156);
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 25px;
+    margin-top: 20px;
+}
+#img{
+background-color: blueviolet;
+color: white;
+font-weight: bold;
+padding: 10px 25px;
+}
+header{
+    font-size: 50px;
+    text-align: center;
+    font-family: 'Concert One', cursive;
+    padding: 20px 20px 10px 20px;
+}
+#tname{
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Concert One', cursive;
+    padding: 10px;
+}
+a{
+    color: blue;
+    font-size: 20px ;
+    text-align: center;
+}
+#logout{
+    text-align: center;
+    padding-bottom: 35px;
+}
+#logout a{
+    font-size: 20px;
+    color: white;
+}
+form{
+    text-align: center;
+}
+#flex{
+    display: flex;
+    justify-content: space-around;
+    margin-left: 20vw;
+    margin-right: 20vw;
+}
+/* TABLE */
+.list {
+border-collapse: collapse;
+font-family: sans-serif;
+min-width: 50%;
+margin-left: auto;
+margin-right: auto;
+}
+.list thead tr {
+background-color: #ff304f;
+color: #ffffff;
+text-align: left;
+}
+.list  th,
+.list  td {
+padding: 12px 15px;
+}
+.list tbody tr {
+border-bottom: 1px solid #dddddd;
+}
+
+.list tbody tr:nth-of-type(even) {
+background-color: #f3f3f3;
+}
+.list tbody tr:nth-of-type(odd) {
+background-color: #fabed0;
+}
