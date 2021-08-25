@@ -1,0 +1,31 @@
+<link href="/public/index.css" rel="stylesheet">
+
+<header>Multimedia Upload</header>
+<div id="logout"><a href="/">Logout</a></div>
+<form id="upload" method="POST" action="/upload" enctype="multipart/form-data">
+    <div id="flex">
+    <input id="img" type="file" name="media"><br>
+    <input type="submit" value="UPLOAD" class="uploadBtn">
+    </div>
+</form>
+    <table class="list">
+        <div id="tname">Uploaded Media</div>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Media</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+        <tbody>
+            <%if (img !='') { %>
+            <% for (var i = 0; i < img.length; i++) { %>
+                <tr>
+                    <td><%=img[i].Image %></td>
+                    <td><a href="http://localhost:6060/<%=img[i].url%>">View</a></td>
+                    <td><a href="/delete/<%=img[i].id %>/<%=img[i].owner %>">Delete</td>
+                </tr>
+            <% } %>
+            <% } %>
+        </tbody>
+    </table>
