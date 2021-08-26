@@ -12,7 +12,7 @@ const storage = multer.diskStorage({
       callback(null, './uploads');
     },
     filename: function(req, file, callback) {
-      callback(null,file.originalname);
+      callback(null,new Date().toISOString() + file.originalname);
     }
 });
 
@@ -97,7 +97,7 @@ router.post("/login",(req,res)=>{
 
 router.post("/upload",upload.single("media"),(req,res) => {
     const media = new Media({
-        Image: req.file.originalname,
+        Image: new Date().toISOString() + req.file.originalname,
         url: req.file.path,
         owner : username
     })
